@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Song Page</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/song_page.css">
+</head>
+<body>
+  <header>
+    <div class="container row">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/logo.png" class="logo" alt="PressingPlay home">
+        </a>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#submit">SUBMIT</a>
+        <a href="#review">REVIEW</a>
+        <a href="#about">ABOUT</a>
+      </nav>
+      <form class="search" role="search">
+        <input type="search" placeholder="Search for Songs, Albums, or Reviews" aria-label="Search" />
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="song-hero" aria-labelledby="song-title">
+      <figure class="song-art">
+        <img src="images/notion.png" alt="Notion artwork">
+      </figure>
+
+      <div class="song-meta">
+        <h1 id="song-title">Notion</h1>
+        <div class="sub">Brandon Kai (2022)</div>
+        <a class="play-link" href="https://www.youtube.com" target="_blank" rel="noopener">
+          <span class="play-triangle" aria-hidden="true"></span>
+          <span>Play Song</span>
+        </a>
+      </div>
+
+      <aside class="song-rating" aria-label="Average rating">
+        <div class="big-star" aria-hidden="true">
+          <img src="images/star.png" alt="" class="icon-star" style="width:65px; height:65px;">
+        </div>
+        <div class="score">8.0</div>
+      </aside>
+    </section>
+
+    <section class="review-box" aria-labelledby="compose-title">
+      <div class="rating-row">
+        <div class="mini-star" aria-hidden="true">
+          <img src="images/star.png" alt="" class="icon-star">
+        </div>
+        <strong id="compose-title">Rate & Review</strong>
+        <span class="slash10">/10</span>
+      </div>
+
+      <label class="visually-hidden" for="reviewText">Leave a review</label>
+      <textarea id="reviewText" class="review-input" placeholder="Leave a review!"></textarea>
+
+      <div class="composer-actions">
+        <button class="btn-outline" type="button">Preview</button>
+        <button class="btn" type="button">Post Review</button>
+      </div>
+    </section>
+
+    <div class="reviews-top">
+      <span class="chip">Top Rated ▾</span>
+      <span class="count">2,004 Reviews</span>
+    </div>
+
+    <section class="reviews-list" aria-label="Top reviews">
+      <article class="review-card">
+        <div class="review-avatar">
+          <img src="images/pfp.jpg" alt="DaltonTheProf avatar">
+        </div>
+        <div class="review-body">
+          <h4>@DaltonTheProf</h4>
+          <p>Life changing song, I give it an A+ for its…</p>
+          <button class="btn" type="button">Read More</button>
+        </div>
+        <div class="vote-col" aria-label="Votes">
+          <div>320 👍</div>
+          <div>12 👎</div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-avatar">
+          <img src="images/pfp.jpg" alt="MarcoPolo avatar">
+        </div>
+        <div class="review-body">
+          <h4>@MarcoPolo</h4>
+          <p>Am I the only one who hates the chorus? It sounds like…</p>
+          <button class="btn" type="button">Read More</button>
+        </div>
+        <div class="vote-col">
+          <div>201 👍</div>
+          <div>42 👎</div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-avatar">
+          <img src="images/pfp.jpg" alt="User avatar">
+        </div>
+        <div class="review-body">
+          <h4>@Cocky</h4>
+          <p>Cock-a-doodle-doo…</p>
+          <button class="btn" type="button">Read More</button>
+        </div>
+        <div class="vote-col">
+          <div>110 👍</div>
+          <div>6 👎</div>
+        </div>
+      </article>
+
+      <div class="view-more-wrap">
+        <button class="view-more" type="button">View More ▾</button>
+      </div>
+    </section>
+
+    <section class="cta" aria-label="About">
+      <h2>PressingPlay, the world's premiere hub for music critics</h2>
+      <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
+      <a class="ghost" href="#about">About</a>
+      <div class="copyright">Copyright © 2025 Marco Carrieri</div>
+    </section>
+
+  </main>
+</body>
+</html>

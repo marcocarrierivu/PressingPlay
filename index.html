@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PressingPlay</title>
+</head>
+<body>
+
+  <header>
+    <div class="container row">
+      <div class="brand">
+        <a href="#">
+            <img src="images/logo.png" class="logo" alt="PressingPlay">
+        </a>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#submit">SUBMIT</a>
+        <a href="#review">REVIEW</a>
+        <a href="#about">ABOUT</a>
+      </nav>
+      <form class="search" role="search">
+        <input type="search" placeholder="Search for Songs, Albums, or Reviews" aria-label="Search" />
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="albums-wrap" aria-labelledby="albums">
+      <div class="albums-filter">
+        <button id="albumsFilterBtn" class="dd-btn" aria-haspopup="listbox" aria-expanded="false">
+          Top Rated Albums <span class="caret">▾</span>
+        </button>
+        <ul id="albumsFilterMenu" class="dd-menu" role="listbox" aria-labelledby="albumsFilterBtn">
+          <li role="option" data-value="top" aria-selected="true">Top Rated</li>
+          <li role="option" data-value="recent" aria-selected="false">Most Recent</li>
+          <li role="option" data-value="week" aria-selected="false">Most Popular This Week</li>
+        </ul>
+      </div>
+
+      <div class="row" style="margin-bottom:10px">
+        <h2 id="albums" style="margin:0; font-size:0">Top Rated Albums</h2>
+      </div>
+
+      <button class="carousel-btn carousel-prev" aria-label="Previous albums" data-dir="-1"><</button>
+      <button class="carousel-btn carousel-next" aria-label="Next albums" data-dir="1">></button>
+
+      <div class="albums" id="albumStrip" aria-live="polite">
+        <article class="album">
+          <img src="images/the eminem show.png" alt="Album cover: The Eminem Show" />
+          <div class="meta">
+            <div class="title">The Eminem Show</div>
+            <div class="artist">Eminem</div>
+          </div>
+        </article>
+
+        <article class="album">
+          <img src="images/thank you 4 your service.png" alt="Album cover: We Got It from Here... Thank You 4 Your Service" />
+          <div class="meta">
+            <div class="title">We Got It from Here... Thank You 4 Your Service</div>
+            <div class="artist">A Tribe Called Quest</div>
+          </div>
+        </article>
+
+        <article class="album">
+          <img src="images/illmatic.png" alt="Album cover: Illmatic" />
+          <div class="meta">
+            <div class="title">Illmatic</div>
+            <div class="artist">Nas</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <section aria-labelledby="reviews">
+      <h2 id="reviews" class="section-title">Reviews</h2>
+
+      <div class="tabs" role="tablist" aria-label="Review filters">
+        <button class="active" role="tab" aria-selected="true">Top Rated</button>
+        <button role="tab">Recent</button>
+        <button role="tab">Popular Today</button>
+        <button role="tab">Popular This Week</button>
+        <button role="tab">Controversial</button>
+      </div>
+
+      <article class="card">
+        <div class="thumb">
+          <img src="images/Lupe-Fiasco-Samurai.webp" alt="Cover art for review: A cutting-edge track" />
+        </div>
+
+        <div class="content">
+          <h3>A cutting-edge track</h3>
+          <p class="snippet">Lupe Fiasco proves yet again why he…</p>
+          <div class="actions">
+            <button class="btn">Read More</button>
+            <span class="pill">👍 4.6k</span>
+            <span class="pill">💬 367</span>
+            <span class="pill">Author: @carrieri</span>
+          </div>
+        </div>
+
+        <div class="rating">
+          <div class="score">4.5</div>
+          <div class="star" aria-hidden="true">
+            <img src="images/star.png" alt="" class="icon-star">
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <img src="images/Little-Simz.webp" alt="Cover art for review: Deep" />
+        </div>
+
+        <div class="content">
+          <h3>Deep.</h3>
+          <p class="snippet">Wow, life changing…</p>
+          <div class="actions">
+            <button class="btn">Read More</button>
+            <span class="pill">👍 4.1k</span>
+            <span class="pill">💬 155</span>
+            <span class="pill">Author: @dybala21</span>
+          </div>
+        </div>
+
+        <div class="rating">
+          <div class="score">8.0</div>
+          <div class="star" aria-hidden="true">
+            <img src="images/star.png" alt="" class="icon-star">
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <img src="images/Lauryn-Hill.webp" alt="Cover art for review: Best Female Artist" />
+        </div>
+
+        <div class="content">
+          <h3>Best Female Artist.</h3>
+          <p class="snippet">I loved every song especially the one where she goes…</p>
+          <div class="actions">
+            <button class="btn">Read More</button>
+            <span class="pill">👍 3.7k</span>
+            <span class="pill">💬 97</span>
+            <span class="pill">Author: @TheBurntChip</span>
+          </div>
+        </div>
+
+        <div class="rating">
+          <div class="score">9.0</div>
+          <div class="star" aria-hidden="true">
+            <img src="images/star.png" alt="" class="icon-star">
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="cta" aria-label="About">
+      <h2>PressingPlay, the world's premiere hub for music critics</h2>
+      <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
+      <a class="ghost" href="#about">About</a>
+      <div class="copyright">Copyright © 2025 Marco Carrieri</div>
+    </section>
+
+  </main>
+</body>
+</html>
