@@ -1,86 +1,127 @@
-.song-hero{
-  display:grid;
-  grid-template-columns: 260px 1fr 180px;
-  gap:75px;
-  align-items:center;
-  margin:40px 0 10px;
+.review-box{ /* At the html document I have a review composer area and ".review-box" refers to that container */
+  background:linear-gradient(180deg,var(--card),var(--card-alt)); /* dark card gradient background */
+  border:1px solid var(--border); /* subtle 1px border around box */
+  border-radius:12px; /* rounded corners for the box */
+  padding:12px 14px; /* inner spacing for content */
+  margin-bottom:14px; /* space below the composer */
 }
 
-.song-art{
-  width:260px; height:260px; border-radius:14px; overflow:hidden;
-  border:1px solid var(--border);
-}
-.song-meta h1{font-size:48px; line-height:1.05; margin:.1em 0 .25em}
-.song-meta .sub{color:var(--muted); margin-bottom:18px}
-.play-link{
-  display:inline-flex; align-items:center; gap:10px;
-  border:1px solid var(--border); border-radius:999px;
-  padding:10px 14px; color:#fff;
-}
-.play-triangle{
-  width:0; height:0; border-left:10px solid #fff;
-  border-top:7px solid transparent; border-bottom:7px solid transparent;
-}
-.song-rating{display:grid; justify-items:center; gap:10px}
-.song-rating .big-star{
-  width:110px; height:110px; border-radius:16px; display:grid; place-items:center;
-  border:1px solid var(--border); background:rgba(255,255,255,.06);
+.rating-row{ /* At the html document the stars and the “/10” live on one horizontal line and ".rating-row" refers to that row */
+  display:flex; /* places children in a row */
+  align-items:center; /* vertically centers star icons and text */
+  gap:12px; /* space between stars and “/10” text */
+  margin-bottom:10px; /* space under the rating row */
 }
 
-.big-star .icon-star{width:70px; height:70px}
-.song-rating .score{font-size:40px; font-weight:800}
-
-.review-box{
-  background:linear-gradient(180deg,var(--card),var(--card-alt));
-  border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin-bottom:14px;
-}
-.rating-row{display:flex; align-items:center; gap:12px; margin-bottom:10px}
-.rating-row .mini-star{
-  width:30px; height:30px; border-radius:8px; display:grid; place-items:center;
-  border:1px solid var(--border); background:rgba(255,255,255,.06);
+.rating-row .mini-star{ /* At the html document each star sits in a small square badge and ".mini-star" refers to that badge */
+  width:30px; /* fixed width for square */
+  height:30px; /* fixed height for square */
+  border-radius:8px; /* slightly rounded corners */
+  display:grid; /* grid allows easy centering */
+  place-items:center; /* centers the star icon inside */
+  border:1px solid var(--border); /* thin border around badge */
+  background:rgba(255,255,255,.06); /* faint overlay to separate from background */
 }
 
-.mini-star .icon-star{width:18px; height:18px}
-.rating-row .slash10{color:var(--muted)}
-.review-input{
-  width:100%; min-height:46px; resize:vertical; border-radius:8px;
-  border:1px solid var(--border); background:transparent; color:#fff; padding:10px;
-}
-.composer-actions{display:flex; gap:10px; margin-top:10px}
-.btn-outline{
-  background:transparent; border:1px solid var(--border); color:#fff;
-  border-radius:8px; padding:8px 12px; cursor:pointer;
+.mini-star .icon-star{ /* At the html document the actual star icon inside the mini badge has a consistent size and ".icon-star" refers to that icon */
+  width:18px; /* star width */
+  height:18px; /* star height */
 }
 
-.reviews-top{display:flex; align-items:center; gap:12px; margin:18px 0 8px}
-.reviews-top .count{color:var(--muted); font-size:14px; margin-left:auto}
-.chip{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:6px 10px; border-radius:999px; background:var(--chip); color:#fff; font-size:12px;
+.rating-row .slash10{ /* At the html document the “/10” label is toned down and ".slash10" refers to that text */
+  color:var(--muted); /* muted text color */
 }
 
-.review-card{
-  display:grid; grid-template-columns:70px 1fr 90px; gap:16px; align-items:center;
-  background:linear-gradient(180deg,var(--card),var(--card-alt));
-  border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:14px;
+.review-input{ /* At the html document the main input where users type the review uses ".review-input" */
+  width:100%; /* expands to full width of composer */
+  min-height:46px; /* comfortable default height */
+  resize:vertical; /* allows user to drag taller */
+  border-radius:8px; /* rounded corners to match cards */
+  border:1px solid var(--border); /* subtle outline */
+  background:transparent; /* blends with card background */
+  color:#fff; /* white text on dark background */
+  padding:10px; /* inner spacing for text */
 }
-.review-avatar{
-  width:70px; height:70px; border-radius:10px; overflow:hidden; border:1px solid var(--border);
-}
-.review-body h4{margin:0 0 6px; font-size:15px}
-.review-body p{margin:0 0 10px; color:var(--muted); font-size:14px}
-.vote-col{display:grid; justify-items:end; row-gap:8px; color:var(--muted); font-size:12px}
 
-.view-more-wrap{display:grid; place-items:center; margin:18px 0}
-.view-more{border:1px solid var(--border); background:transparent; color:#fff; border-radius:999px; padding:8px 14px}
-
-@media (max-width:900px){
-  .song-hero{grid-template-columns: 200px 1fr; gap:24px}
-  .song-rating{grid-column:1/-1; justify-items:flex-start}
-  .song-art{width:200px; height:200px}
-  .song-meta h1{font-size:40px}
+.composer-actions{ /* At the html document the action buttons under the textbox are grouped and ".composer-actions" refers to that row */
+  display:flex; /* lays buttons side by side */
+  gap:10px; /* space between buttons */
+  margin-top:10px; /* space above the buttons */
 }
-@media (max-width:640px){
-  .song-hero{grid-template-columns: 1fr}
-  .song-art{width:100%; height:auto; aspect-ratio:1/1}
+
+.reviews-top{ /* At the html document the top of the Reviews section contains filters and count, and ".reviews-top" refers to that bar */
+  display:flex; /* horizontal layout */
+  align-items:center; /* vertically center items */
+  gap:12px; /* spacing between items */
+  margin:18px 0 8px; /* outer spacing above/below */
+}
+
+.reviews-top .count{ /* At the html document the review count is aligned to the far right and ".count" refers to that element */
+  color:var(--muted); /* muted text color */
+  font-size:14px; /* smaller font size */
+  margin-left:auto; /* pushes count to the right end */
+}
+
+.chip{ /* At the html document small category/filter chips are displayed as pills and ".chip" refers to those */
+  display:inline-flex; /* inline pill layout */
+  align-items:center; /* center icon and label */
+  gap:8px; /* spacing inside chip */
+  padding:6px 10px; /* internal spacing */
+  border-radius:999px; /* pill shape */
+  background:var(--chip); /* chip background color */
+  color:#fff; /* chip text color */
+  font-size:12px; /* compact text size */
+}
+
+.review-card{ /* At the html document each review in the list is a card with three columns and ".review-card" refers to that card */
+  display:grid; /* grid layout for avatar/body/score */
+  grid-template-columns:70px 1fr 90px; /* left avatar, middle content, right score */
+  gap:16px; /* spacing between columns */
+  align-items:center; /* vertical centering for rows */
+  background:linear-gradient(180deg,var(--card),var(--card-alt)); /* card gradient background */
+  border:1px solid var(--border); /* thin border for separation */
+  border-radius:12px; /* rounded corners */
+  padding:14px 16px; /* inner padding */
+  margin-bottom:14px; /* space below each card */
+}
+
+.review-avatar{ /* At the html document the album/author image on the left has a fixed square and ".review-avatar" refers to that image box */
+  width:70px; /* fixed square width */
+  height:70px; /* fixed square height */
+  border-radius:10px; /* rounded corners */
+  overflow:hidden; /* clip image to box */
+  border:1px solid var(--border); /* subtle outline around avatar */
+}
+
+.review-body h4{ /* At the html document the review title uses an <h4> inside the body and ".review-body h4" refers to that heading */
+  margin:0 0 6px; /* removes top margin, adds space below */
+  font-size:15px; /* compact heading size for cards */
+}
+
+.review-body p{ /* At the html document the short description text below the title is styled by ".review-body p" */
+  margin:0 0 10px; /* space under the paragraph */
+  color:var(--muted); /* lighter color for secondary text */
+  font-size:14px; /* readable but compact size */
+}
+
+.vote-col{ /* At the html document the rightmost column shows votes/score and ".vote-col" refers to that column */
+  display:grid; /* vertical stack of elements */
+  justify-items:end; /* align numbers/icons to the right */
+  row-gap:8px; /* vertical spacing between rows */
+  color:var(--muted); /* muted text color */
+  font-size:12px; /* compact number size */
+}
+
+.view-more-wrap{ /* At the html document the “View more” wrapper centers the button and ".view-more-wrap" refers to that container */
+  display:grid; /* enable place-items centering */
+  place-items:center; /* centers the button horizontally */
+  margin:18px 0; /* spacing above and below */
+}
+
+.view-more{ /* At the html document the actual “View more” button is outlined and ".view-more" refers to that button */
+  border:1px solid var(--border); /* thin outline */
+  background:transparent; /* no fill color */
+  color:#fff; /* white label text */
+  border-radius:999px; /* pill shape */
+  padding:8px 14px; /* comfortable hit area */
 }

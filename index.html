@@ -5,6 +5,91 @@
   <link rel="stylesheet" href="css/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PressingPlay</title>
+
+  <!-- Internal CSS: homepage-only components (albums, tabs, review cards) -->
+  <style>
+    /* Albums carousel */
+    .albums-wrap{position:relative}
+    .albums{display:flex; gap:24px; overflow-x:auto; padding-bottom:4px}
+
+    .album{
+      min-width:320px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+    .album img{border-radius:12px 12px 0 0; width:100%; aspect-ratio:1/1; object-fit:cover}
+    .album .meta{padding:12px 14px 16px}
+    .album .title{font-weight:700; margin:2px 0 6px}
+    .album .artist{font-size:14px; color:var(--muted)}
+
+    .carousel-btn{
+      position:absolute; top:38%; transform:translateY(-50%);
+      width:38px; height:38px; border-radius:50%;
+      border:1px solid var(--border); background:rgba(20,8,48,.7);
+      color:#fff; display:grid; place-items:center; cursor:pointer;
+    }
+    .carousel-prev{left:-50px}
+    .carousel-next{right:-50px}
+
+    /* Albums filter dropdown */
+    .albums-filter{position:absolute; right:6px; top:-18px}
+    .dd-btn{
+      padding:6px 10px; border-radius:999px; border:1px solid var(--border);
+      background:var(--chip); color:var(--chip-text); font-size:12px; cursor:pointer;
+    }
+    .dd-menu{
+      position:absolute; right:0; margin-top:8px;
+      background:var(--card); border:1px solid var(--border); border-radius:10px;
+      min-width:200px; padding:6px; list-style:none; display:none;
+    }
+    .dd-menu li{padding:8px 10px; border-radius:8px; cursor:pointer}
+    .dd-menu li[aria-selected="true"], .dd-menu li:hover{background:rgba(255,255,255,.10)}
+    .albums-filter[data-open="true"] .dd-menu{display:block}
+
+    /* Review filters (tabs) */
+    .tabs{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px}
+    .tabs button{
+      background:transparent; border:1px solid var(--border); color:var(--text);
+      padding:8px 12px; border-radius:999px; cursor:pointer;
+    }
+    .tabs button.active{background:var(--chip); border-color:transparent}
+
+    /* Review cards list */
+    .card{
+      display:grid; grid-template-columns:120px 1fr 120px; gap:18px; align-items:center;
+      background:linear-gradient(180deg,var(--card),var(--card-alt));
+      border:1px solid var(--border); border-radius:14px;
+      padding:16px 18px; margin-bottom:16px;
+    }
+    .thumb{width:120px; height:120px; border-radius:10px; overflow:hidden}
+    .content h3{margin:0 0 6px}
+    .snippet{color:var(--muted); font-size:14px; margin:0 0 10px}
+    .actions{display:flex; gap:10px; align-items:center; font-size:14px}
+
+    .pill{
+      display:inline-flex; gap:6px; align-items:center;
+      padding:4px 8px; border:1px solid var(--border); border-radius:999px; color:var(--muted);
+    }
+
+    .rating{display:grid; place-items:center; gap:6px; text-align:center}
+    .rating .score{font-size:28px; font-weight:800}
+    .star{
+      width:54px; height:54px; border-radius:12px; display:grid; place-items:center;
+      border:1px solid var(--border); background:rgba(255,255,255,.06);
+    }
+
+    /* Homepage responsiveness */
+    @media (max-width:900px){
+      .album{min-width:280px}
+      .card{grid-template-columns:90px 1fr 90px}
+      .thumb{width:90px; height:90px}
+    }
+    @media (max-width:650px){
+      .card{grid-template-columns:80px 1fr}
+      .rating{grid-column:1/-1; justify-content:flex-start; margin-left:98px}
+    }
+  </style>
 </head>
 <body>
 
@@ -160,7 +245,7 @@
       </article>
     </section>
 
-    <section class="cta" aria-label="About">
+    <section class="footer" aria-label="About">
       <h2>PressingPlay, the world's premiere hub for music critics</h2>
       <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
       <a class="ghost" href="#about">About</a>
