@@ -1,152 +1,111 @@
+/*  At the html document I keep all theme colors in :root and “:root” refers to the <html> element  */
 :root{
-  --bg-top:#1b0b3a;
-  --bg-bot:#b045ff;
-  --card:#2a1753;
-  --card-alt:#341d62;
-  --text:#ffffff;
-  --muted:#cbbde6;
-  --chip:#6b47ff;
-  --chip-text:#fff;
-  --btn:#6b47ff;
-  --btn-hover:#5837df;
-  --border:rgba(255,255,255,.12);
+  --bg-top:#1b0b3a; /* top of page background gradient */
+  --bg-bot:#b045ff; /* bottom of page background gradient */
+  --card:#2a1753; /* default card background */
+  --card-alt:#341d62; /* subtle gradient variation for cards */
+  --text:#ffffff; /* main text color */
+  --muted:#cbbde6; /* secondary / muted text */
+  --chip:#6b47ff; /* pill/chip background */
+  --chip-text:#fff; /* pill/chip text */
+  --btn:#6b47ff; /* primary button background */
+  --btn-hover:#5837df; /* primary button hover color */
+  --border:rgba(255,255,255,.12); /* subtle 1px borders on dark bg */
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
+/*  Applies border-box sizing to all elements so padding/border don’t increase width  */
+*{ box-sizing:border-box }
+
+/*  Lets the page gradient stretch the full viewport height  */
+html,body{ height:100% }
+
 body{
-  margin:0;
-  font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-  color:var(--text);
-  background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 85%);
-  min-height:100%;
+  /*  Removes default spacing and sets global typography  */
+  margin:0; /* removes default margin around body */
+  font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; /* base font stack */
+  color:var(--text); /* sets default text color */
+  background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 85%); /* vertical page gradient */
+  min-height:100%; /* ensures body can grow to full height */
 }
 
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%;height:auto}
-.container{max-width:1120px;margin:0 auto;padding:28px 20px}
-.row{display:flex;gap:24px;align-items:center}
-.spacer{height:28px}
+/*  Links inherit the surrounding text color and have no underline  */
+a{ color:inherit; text-decoration:none }
 
+/*  Images are block-level and scale down responsively within their containers  */
+img{ display:block; max-width:100%; height:auto }
+
+/*  Generic layout helpers used throughout the site  */
+.container{ max-width:1120px; margin:0 auto; padding:28px 20px } /* centers content with inner padding */
+.row{ display:flex; gap:24px; align-items:center } /* horizontal flex row with spacing */
+.spacer{ height:28px } /* vertical space element */
+
+/*  The site header is sticky so it stays visible on scroll  */
 header{
-  position:sticky; top:0; z-index:10;
-  background:linear-gradient(180deg,rgba(27,11,58,.95),rgba(27,11,58,.75));
-  border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:10; /* sticks to top; z-index keeps it above content */
+  background:linear-gradient(180deg,rgba(27,11,58,.95),rgba(27,11,58,.75)); /* semi-transparent header bg */
+  border-bottom:1px solid var(--border); /* subtle divider line under header */
 }
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:55px;height:55px;border-radius:50%}
-.nav-links{display:flex;gap:28px;margin-left:40px}
-.nav-links a{opacity:.9}
-.nav-links a:hover{opacity:1}
 
+/*  Brand area on the left side of the header  */
+.brand{ display:flex; align-items:center; gap:12px } /* aligns logo and title nicely */
+.logo{ width:55px; height:55px; border-radius:50% } /* circular logo with fixed size */
+
+/*  Primary navigation links inside the header  */
+.nav-links{ display:flex; gap:28px; margin-left:40px } /* pushes nav away from logo */
+.nav-links a{ opacity:.9 } /* slightly dim by default */
+.nav-links a:hover{ opacity:1 } /* full brightness on hover */
+
+/*  Search form in the header (pill style, aligned to the far right)  */
 .search{
-  margin-left:auto; display:flex; align-items:center; gap:8px;
-  background:rgba(255,255,255,.08); border:1px solid var(--border);
-  padding:8px 10px; border-radius:999px; flex:0 1 360px;
+  margin-left:auto; /* pushes search to the right in the header row */
+  display:flex; align-items:center; gap:8px; /* horizontal input + icon layout */
+  background:rgba(255,255,255,.08); /* translucent background on dark header */
+  border:1px solid var(--border); /* hairline border around the search */
+  padding:8px 10px; /* inner spacing */
+  border-radius:999px; /* pill shape */
+  flex:0 1 360px; /* allows shrinking, caps preferred width */
 }
 .search input{
-  border:0; outline:0; background:transparent; color:var(--text); width:100%;
+  border:0; outline:0; background:transparent; /* removes native input chrome */
+  color:var(--text); width:100%; /* inherits text color and fills remaining space */
 }
-.search input::placeholder{color:#fff;opacity:1}
+.search input::placeholder{ color:#fff; opacity:.5 } /* bright placeholder with lower opacity */
 
-.albums-wrap{position:relative}
-.albums{display:flex; gap:24px; overflow-x:auto; padding-bottom:4px}
-
-.album{
-  min-width:320px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-}
-.album img{border-radius:12px 12px 0 0; width:100%; aspect-ratio:1/1; object-fit:cover}
-.album .meta{padding:12px 14px 16px}
-.album .title{font-weight:700; margin:2px 0 6px}
-.album .artist{font-size:14px; color:var(--muted)}
-
-.carousel-btn{
-  position:absolute; top:38%; transform:translateY(-50%);
-  width:38px; height:38px; border-radius:50%;
-  border:1px solid var(--border); background:rgba(20,8,48,.7);
-  color:#fff; display:grid; place-items:center; cursor:pointer;
-}
-.carousel-prev{left:-50px}
-.carousel-next{right:-50px}
-
-.albums-filter{position:absolute; right:6px; top:-18px}
-.dd-btn{
-  padding:6px 10px; border-radius:999px; border:1px solid var(--border);
-  background:var(--chip); color:var(--chip-text); font-size:12px; cursor:pointer;
-}
-.dd-menu{
-  position:absolute; right:0; margin-top:8px;
-  background:var(--card); border:1px solid var(--border); border-radius:10px;
-  min-width:200px; padding:6px; list-style:none; display:none;
-}
-.dd-menu li{padding:8px 10px; border-radius:8px; cursor:pointer}
-.dd-menu li[aria-selected="true"], .dd-menu li:hover{background:rgba(255,255,255,.10)}
-.albums-filter[data-open="true"] .dd-menu{display:block}
-
-.section-title{font-size:34px; margin:28px 0 10px; font-weight:800}
-.tabs{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px}
-.tabs button{
-  background:transparent; border:1px solid var(--border); color:var(--text);
-  padding:8px 12px; border-radius:999px; cursor:pointer;
-}
-.tabs button.active{background:var(--chip); border-color:transparent}
-
-.card{
-  display:grid; grid-template-columns:120px 1fr 120px; gap:18px; align-items:center;
-  background:linear-gradient(180deg,var(--card),var(--card-alt));
-  border:1px solid var(--border); border-radius:14px;
-  padding:16px 18px; margin-bottom:16px;
-}
-.thumb{width:120px; height:120px; border-radius:10px; overflow:hidden}
-.content h3{margin:0 0 6px}
-.snippet{color:var(--muted); font-size:14px; margin:0 0 10px}
-.actions{display:flex; gap:10px; align-items:center; font-size:14px}
+/*  Generic button style used across the site  */
 .btn{
-  background:var(--btn); color:#fff; border:0; border-radius:8px; padding:6px 10px; cursor:pointer;
+  background:var(--btn); color:#fff; /* primary button colors */
+  border:0; border-radius:8px; /* rounded corners */
+  padding:6px 10px; cursor:pointer; /* comfortable hit area and pointer cursor */
 }
-.btn:hover{background:var(--btn-hover)}
-.pill{
-  display:inline-flex; gap:6px; align-items:center;
-  padding:4px 8px; border:1px solid var(--border); border-radius:999px; color:var(--muted);
-}
+.btn:hover{ background:var(--btn-hover) } /* darker shade on hover */
 
-.rating{display:grid; place-items:center; gap:6px; text-align:center}
-.rating .score{font-size:28px; font-weight:800}
-.star{
-  width:54px; height:54px; border-radius:12px; display:grid; place-items:center;
-  border:1px solid var(--border); background:rgba(255,255,255,.06);
-}
-
-.icon-star{width:28px; height:28px; display:block}
-
-.cta{margin-top:34px; border-top:1px solid var(--border); padding:34px 0 22px; text-align:center}
-.cta h2{font-size:28px; margin:0 0 12px; font-weight:800}
-.cta p{margin:0 0 18px}
-.copyright{margin-top:16px; color:var(--muted); font-size:14px}
-
+/*  “Ghost” buttons (transparent with a thin border). Used for chips/filters as <a> or <button>  */
 a.ghost,
 button.ghost{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:transparent;
-  color:#fff;
-  text-decoration:none;
-  line-height:1;
-  font:inherit;
+  display:inline-block; /* allows padding and border to apply nicely */
+  padding:10px 14px; /* inner spacing */
+  border-radius:999px; /* pill shape */
+  border:1px solid var(--border); /* hairline outline */
+  background:transparent; /* no fill color */
+  color:#ffffff; /* white text on dark backgrounds */
+  text-decoration:none; /* no underline for <a> */
+  line-height:1; /* compact vertical alignment */
+  font:inherit; /* matches surrounding font */
 }
 
-@media (max-width:900px){
-  .album{min-width:280px}
-  .card{grid-template-columns:90px 1fr 90px}
-  .thumb{width:90px; height:90px}
+/*  Standard size for star icons so they remain consistent site-wide  */
+.icon-star{ width:28px; height:28px; display:block }
+
+/*  Section headings used like “Reviews”, “Trending”, etc.  */
+.section-title{ font-size:34px; margin:28px 0 10px; font-weight:800 }
+
+/*  Footer block at the bottom of the page  */
+.footer{
+  margin-top:34px; /* space before footer */
+  border-top:1px solid var(--border); /* divider above footer */
+  padding:34px 0 22px; /* inner vertical padding */
+  text-align:center; /* centers footer text */
 }
-@media (max-width:650px){
-  .nav-links{display:none}
-  .card{grid-template-columns:80px 1fr}
-  .rating{grid-column:1/-1; justify-content:flex-start; margin-left:98px}
-}
+.footer h2{ font-size:28px; margin:0 0 12px; font-weight:800 } /* footer heading style */
+.footer p{ margin:0 0 18px } /* spacing for footer paragraphs */
+.copyright{ margin-top:16px; color:var(--muted); font-size:14px } /* small muted copyright line */

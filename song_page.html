@@ -7,6 +7,53 @@
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/song_page.css">
+
+  <style>
+    .song-hero{
+      display:grid;
+      grid-template-columns: 260px 1fr 180px;
+      gap:90px;
+      align-items:center;
+      margin:40px 0 10px;
+    }
+
+    .song-art{
+      width:260px; height:260px; border-radius:14px; overflow:hidden;
+      border:1px solid var(--border);
+    }
+
+    .song-meta h1{font-size:48px; line-height:1.05; margin:.1em 0 .25em}
+    .song-meta .sub{color:var(--muted); margin-bottom:18px}
+
+    .play-link{
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid var(--border); border-radius:999px;
+      padding:10px 14px; color:#fff;
+    }
+    .play-triangle{
+      width:0; height:0; border-left:10px solid #fff;
+      border-top:7px solid transparent; border-bottom:7px solid transparent;
+    }
+
+    .song-rating{display:grid; justify-items:center; gap:10px}
+    .song-rating .big-star{
+      width:110px; height:110px; border-radius:16px; display:grid; place-items:center;
+      border:1px solid var(--border); background:rgba(255,255,255,.06);
+    }
+    .song-rating .score{font-size:40px; font-weight:800}
+
+    /* Responsive hero behavior */
+    @media (max-width:900px){
+      .song-hero{grid-template-columns: 200px 1fr; gap:28px}
+      .song-rating{grid-column:1/-1; justify-items:flex-start}
+      .song-art{width:200px; height:200px}
+      .song-meta h1{font-size:40px}
+    }
+    @media (max-width:640px){
+      .song-hero{grid-template-columns: 1fr}
+      .song-art{width:100%; height:auto; aspect-ratio:1/1}
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -65,7 +112,6 @@
       <textarea id="reviewText" class="review-input" placeholder="Leave a review!"></textarea>
 
       <div class="composer-actions">
-        <button class="btn-outline" type="button">Preview</button>
         <button class="btn" type="button">Post Review</button>
       </div>
     </section>
@@ -126,7 +172,7 @@
       </div>
     </section>
 
-    <section class="cta" aria-label="About">
+    <section class="footer" aria-label="About">
       <h2>PressingPlay, the world's premiere hub for music critics</h2>
       <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
       <a class="ghost" href="#about">About</a>
