@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submit – PressingPlay</title>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/submit.css">
+</head>
+<body>
+  <header>
+    <div class="container row">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/logo.png" class="logo" alt="PressingPlay home">
+        </a>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="submit.html" class="active">SUBMIT</a>
+        <a href="review.html">REVIEW</a>
+        <a href="about.html">ABOUT</a>
+      </nav>
+      <form class="search" role="search">
+        <input type="search" placeholder="Search for Songs, Albums, or Reviews" aria-label="Search" />
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="submit-section" aria-labelledby="submit-title">
+      <h1 id="submit-title" class="visually-hidden">Submit Music</h1>
+
+      <div class="submit-tabs" role="tablist">
+        <button role="tab" aria-selected="true" class="active">Add Album</button>
+        <button role="tab">Add Song</button>
+      </div>
+
+      <form class="submit-form" aria-label="Add Album">
+        <div class="form-row">
+          <label for="artist">Artist*</label>
+          <input type="text" id="artist" name="artist" required>
+        </div>
+
+        <div class="form-row">
+          <label for="album-title">Album Title*</label>
+          <input type="text" id="album-title" name="album-title" required>
+        </div>
+
+        <div class="form-row">
+          <label for="release-date">Release Date*</label>
+          <input type="date" id="release-date" name="release-date" required>
+        </div>
+
+        <div class="form-row">
+          <label for="cover">Album Cover* <span class="note">(Must be greater than 200×200)</span></label>
+          <input type="file" id="cover" name="cover" accept="image/*" required>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="footer" aria-label="About">
+      <h2>PressingPlay, the world's premiere hub for music critics</h2>
+      <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
+      <a class="ghost" href="about.html">About</a>
+      <div class="copyright">Copyright © 2025 Marco Carrieri</div>
+    </section>
+  </main>
+</body>
+</html>

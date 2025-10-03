@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/review.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PressingPlay — Write a Review</title>
+</head>
+<body class="review-page">
+
+  <header>
+    <div class="container row">
+      <div class="brand">
+        <a href="index.html">
+          <img src="images/logo.png" class="logo" alt="PressingPlay">
+        </a>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="submit.html">SUBMIT</a>
+        <a href="review.html" aria-current="page">REVIEW</a>
+        <a href="about.html">ABOUT</a>
+      </nav>
+      <form class="search" role="search" action="#" method="get">
+        <input type="search" placeholder="Search for Songs, Albums, or Reviews" aria-label="Search">
+        <button type="submit" aria-label="Search">🔍</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Write a Review</h1>
+
+    <section class="review-box" aria-labelledby="reviewFormTitle">
+      <h2 id="reviewFormTitle" class="visually-hidden">Review form</h2>
+
+      <form action="#" method="post" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="artist">Artist</label>
+            <input id="artist" name="artist" type="text" required placeholder="e.g., Little Simz" autocomplete="off">
+            <p class="hint">Type the performer’s name.</p>
+          </div>
+
+          <div class="field">
+            <label for="song">Song</label>
+            <input id="song" name="song" type="text" required placeholder="e.g., Gorilla" autocomplete="off">
+            <p class="hint">Exact track title if possible.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="review">Your review</label>
+          <textarea id="review" name="review" rows="8" required placeholder="Share your thoughts… What worked, what didn’t, lines you loved, production, flow, vibe, and replay value."></textarea>
+          <div class="meta-row">
+            <span class="pill">Min 40 chars</span>
+            <span class="pill">Be respectful</span>
+            <span class="pill">No spoilers without warning</span>
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>Rating (0–10 in 0.5 steps)</legend>
+
+          <div class="rating-wrap">
+            <div class="rating-number">
+              <label for="score" class="sub">Score</label>
+              <input id="score" name="score" type="number" step="0.5" min="0" max="10" inputmode="decimal" placeholder="e.g., 8.5" required>
+            </div>
+
+            <div class="rating-range">
+              <label for="scoreRange" class="sub">Adjust</label>
+              <input id="scoreRange" name="scoreRange" type="range" min="0" max="10" step="0.5" aria-describedby="rangeNote">
+              <p id="rangeNote" class="hint">Use the slider or the number box. Final value is taken from the number box.</p>
+            </div>
+
+            <div class="rating-badge" aria-hidden="true">
+              <div class="score">/10</div>
+              <div class="star">
+                <img src="images/star.png" alt="" class="icon-star">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="actions-row">
+          <button class="btn" type="submit">Publish Review</button>
+          <button class="ghost" type="reset">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Footer markup identical to index -->
+    <section class="footer" aria-label="About">
+      <h2>PressingPlay, the world's premiere hub for music critics</h2>
+      <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
+      <a class="ghost" href="about.html">About</a>
+      <div class="copyright">Copyright © 2025 Marco Carrieri</div>
+    </section>
+  </main>
+
+</body>
+</html>
