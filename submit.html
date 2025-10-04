@@ -2,74 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Submit – PressingPlay</title>
+  <title>PressingPlay • Submit</title>
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/submit.css">
+
+  <style>
+    .tabbar{display:flex; gap:18px; justify-content:center; margin-top:36px}
+    .tabbar a{padding:10px 14px; border:1px solid var(--border); border-radius:999px}
+    .form-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:28px; max-width:820px; margin:22px auto 0;
+    }
+    .field label{display:block; font-weight:600; margin-bottom:8px}
+    .field input[type="text"], .field input[type="date"]{
+      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,.06); color:var(--text)
+    }
+    .upload-box{
+      border:1px dashed var(--border); border-radius:12px; padding:16px; display:flex; gap:10px; align-items:center;
+      min-height:92px; justify-content:center;
+    }
+    .submit-row{margin:30px auto 0; max-width:820px}
+    .submit-row .btn-primary{width:100%; padding:14px}
+  </style>
 </head>
-<body>
-  <header>
-    <div class="container row">
-      <div class="brand">
-        <a href="index.html">
-          <img src="images/logo.png" class="logo" alt="PressingPlay home">
-        </a>
-      </div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="submit.html" class="active">SUBMIT</a>
-        <a href="review.html">REVIEW</a>
-        <a href="about.html">ABOUT</a>
+
+<body class="page">
+  <div class="page-wrap">
+    <header class="site-header">
+      <a class="brand" href="index.html"><img src="images/logo.png" class="brand-logo" alt=""/></a>
+      <nav class="main-nav">
+        <a href="submit.html">Submit</a>
+        <a href="review.html">Review</a>
+        <a href="about.html">About</a>
       </nav>
-      <form class="search" role="search">
-        <input type="search" placeholder="Search for Songs, Albums, or Reviews" aria-label="Search" />
-        <button type="submit" aria-label="Search">🔍</button>
+      <form class="search" role="search"><input type="search" placeholder="Search for Songs, Albums, or Reviews"><button aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M21 20.3 16.7 16a8 8 0 1 0-1.7 1.7L20.3 21 21 20.3zM10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/></svg>
+      </button></form>
+    </header>
+
+    <main class="container">
+      <nav class="tabbar" aria-label="Submit tabs">
+        <a href="#" class="is-active">Add Album</a>
+        <a href="#">Add Song</a>
+      </nav>
+
+      <form class="form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="artist">Artist*</label>
+            <input id="artist" type="text" placeholder="Enter artist name">
+          </div>
+
+          <div class="field">
+            <label for="title">Album Title*</label>
+            <input id="title" type="text" placeholder="Enter album title">
+          </div>
+
+          <div class="field">
+            <label for="date">Release Date*</label>
+            <input id="date" type="date">
+          </div>
+
+          <div class="field">
+            <label>Album Cover* <span class="muted">(Must be greater than 200×200)</span></label>
+            <div class="upload-box">
+              <button class="btn" type="button">Upload Artwork</button>
+              <span aria-hidden="true">⤴︎</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
       </form>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <img src="images/logo.png" alt="" class="footer-logo" />
+      <p class="footer-tagline"><strong>PressingPlay, the world's premiere hub for music critics</strong></p>
+      <a href="about.html" class="footer-btn">About</a>
     </div>
-  </header>
-
-  <main class="container">
-    <section class="submit-section" aria-labelledby="submit-title">
-      <h1 id="submit-title" class="visually-hidden">Submit Music</h1>
-
-      <div class="submit-tabs" role="tablist">
-        <button role="tab" aria-selected="true" class="active">Add Album</button>
-        <button role="tab">Add Song</button>
-      </div>
-
-      <form class="submit-form" aria-label="Add Album">
-        <div class="form-row">
-          <label for="artist">Artist*</label>
-          <input type="text" id="artist" name="artist" required>
-        </div>
-
-        <div class="form-row">
-          <label for="album-title">Album Title*</label>
-          <input type="text" id="album-title" name="album-title" required>
-        </div>
-
-        <div class="form-row">
-          <label for="release-date">Release Date*</label>
-          <input type="date" id="release-date" name="release-date" required>
-        </div>
-
-        <div class="form-row">
-          <label for="cover">Album Cover* <span class="note">(Must be greater than 200×200)</span></label>
-          <input type="file" id="cover" name="cover" accept="image/*" required>
-        </div>
-
-        <div class="form-actions">
-          <button class="btn" type="submit">Submit</button>
-        </div>
-      </form>
-    </section>
-
-    <section class="footer" aria-label="About">
-      <h2>PressingPlay, the world's premiere hub for music critics</h2>
-      <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
-      <a class="ghost" href="about.html">About</a>
-      <div class="copyright">Copyright © 2025 Marco Carrieri</div>
-    </section>
-  </main>
+    <p class="copyright">Copyright © 2025 Marco Carrieri</p>
+  </footer>
 </body>
 </html>

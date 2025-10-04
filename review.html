@@ -2,102 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>PressingPlay • Write a Review</title>
+
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/review.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PressingPlay — Write a Review</title>
+
+  <style>
+    .form-wrap{margin-top:28px}
+    .helper-note{margin:6px 0 12px; color:var(--muted); font-size:.95rem}
+  </style>
 </head>
-<body class="review-page">
 
-  <header>
-    <div class="container row">
-      <div class="brand">
-        <a href="index.html">
-          <img src="images/logo.png" class="logo" alt="PressingPlay">
-        </a>
-      </div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="submit.html">SUBMIT</a>
-        <a href="review.html" aria-current="page">REVIEW</a>
-        <a href="about.html">ABOUT</a>
+<body class="page">
+  <div class="page-wrap">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="images/logo.png" alt="PressingPlay logo" class="brand-logo" />
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="submit.html">Submit</a>
+        <a href="review.html">Review</a>
+        <a href="about.html">About</a>
       </nav>
-      <form class="search" role="search" action="#" method="get">
-        <input type="search" placeholder="Search for Songs, Albums, or Reviews" aria-label="Search">
-        <button type="submit" aria-label="Search">🔍</button>
+      <form class="search" role="search" aria-label="Search">
+        <input type="search" placeholder="Search for Songs, Albums, or Reviews" />
+        <button aria-label="Search">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M21 20.3 16.7 16a8 8 0 1 0-1.7 1.7L20.3 21 21 20.3zM10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/>
+          </svg>
+        </button>
       </form>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <h1 class="section-title">Write a Review</h1>
+    <main class="container">
+      <h1 class="page-title" style="margin-top:24px">Write a Review</h1>
 
-    <section class="review-box" aria-labelledby="reviewFormTitle">
-      <h2 id="reviewFormTitle" class="visually-hidden">Review form</h2>
-
-      <form action="#" method="post" novalidate>
-        <div class="grid">
-          <div class="field">
-            <label for="artist">Artist</label>
-            <input id="artist" name="artist" type="text" required placeholder="e.g., Little Simz" autocomplete="off">
-            <p class="hint">Type the performer’s name.</p>
-          </div>
-
-          <div class="field">
-            <label for="song">Song</label>
-            <input id="song" name="song" type="text" required placeholder="e.g., Gorilla" autocomplete="off">
-            <p class="hint">Exact track title if possible.</p>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="review">Your review</label>
-          <textarea id="review" name="review" rows="8" required placeholder="Share your thoughts… What worked, what didn’t, lines you loved, production, flow, vibe, and replay value."></textarea>
-          <div class="meta-row">
-            <span class="pill">Min 40 chars</span>
-            <span class="pill">Be respectful</span>
-            <span class="pill">No spoilers without warning</span>
-          </div>
-        </div>
-
-        <fieldset class="field">
-          <legend>Rating (0–10 in 0.5 steps)</legend>
-
-          <div class="rating-wrap">
-            <div class="rating-number">
-              <label for="score" class="sub">Score</label>
-              <input id="score" name="score" type="number" step="0.5" min="0" max="10" inputmode="decimal" placeholder="e.g., 8.5" required>
+      <section class="form-wrap">
+        <form class="review-form" novalidate>
+          <div class="grid-2">
+            <div class="field">
+              <label for="artist">Artist</label>
+              <input id="artist" type="text" placeholder="e.g., Greentea Peng">
+              <p class="helper-note">Type the performer's name.</p>
             </div>
 
-            <div class="rating-range">
-              <label for="scoreRange" class="sub">Adjust</label>
-              <input id="scoreRange" name="scoreRange" type="range" min="0" max="10" step="0.5" aria-describedby="rangeNote">
-              <p id="rangeNote" class="hint">Use the slider or the number box. Final value is taken from the number box.</p>
+            <div class="field">
+              <label for="song">Song</label>
+              <input id="song" type="text" placeholder="e.g., Hu Man">
+              <p class="helper-note">Exact track title if possible.</p>
             </div>
+          </div>
 
-            <div class="rating-badge" aria-hidden="true">
-              <div class="score">/10</div>
-              <div class="star">
-                <img src="images/star.png" alt="" class="icon-star">
+          <div class="field">
+            <label for="body">Your review</label>
+            <textarea id="body" placeholder="Write your review here..."></textarea>
+          </div>
+
+          <div class="chip-row" aria-hidden="true">
+            <span class="chip hollow">Min 40 chars</span>
+            <span class="chip hollow">Be respectful</span>
+            <span class="chip hollow">No spoilers without warning</span>
+          </div>
+
+          <fieldset class="rating-card">
+            <legend>Rating (0–10 in 0.5 steps)</legend>
+
+            <div class="rating-grid">
+              <div class="field">
+                <label for="score">Score</label>
+                <input id="score" type="number" inputmode="decimal" step="0.5" min="0" max="10" placeholder="e.g., 8.5">
+              </div>
+
+              <div class="field">
+                <label for="adjust">Adjust</label>
+                <input id="adjust" class="range" type="range" min="0" max="10" step="0.5" value="7.5" />
+                <p class="helper-note">Use the slider or the number box. Final value is taken from the number box.</p>
+              </div>
+
+              <div class="score-big" aria-label="Out of ten">
+                <div class="ten">/10</div>
+                <button class="star-btn" type="button" aria-label="Mark as favorite">
+                  <svg viewBox="0 0 24 24" class="star-ico" aria-hidden="true">
+                    <path fill="currentColor" d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.7 6.9L12 17.7 5.7 20.8l1.7-6.9L2 9.2l7.1-.6z"/>
+                  </svg>
+                </button>
               </div>
             </div>
+          </fieldset>
+
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Publish Review</button>
+            <button class="btn" type="reset">Clear</button>
           </div>
-        </fieldset>
+        </form>
+      </section>
+    </main>
+  </div>
 
-        <div class="actions-row">
-          <button class="btn" type="submit">Publish Review</button>
-          <button class="ghost" type="reset">Clear</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- Footer markup identical to index -->
-    <section class="footer" aria-label="About">
-      <h2>PressingPlay, the world's premiere hub for music critics</h2>
-      <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
-      <a class="ghost" href="about.html">About</a>
-      <div class="copyright">Copyright © 2025 Marco Carrieri</div>
-    </section>
-  </main>
-
+  <footer class="site-footer">
+    <div class="footer-main">
+      <img src="images/logo.png" alt="" class="footer-logo" />
+      <div class="footer-center">
+        <p class="footer-tagline">
+          <strong>PressingPlay, the world's premiere hub for music critics</strong>
+        </p>
+        <p class="muted" style="margin:4px 0 0">Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
+      </div>
+      <a href="about.html" class="footer-btn">About</a>
+    </div>
+    <p class="copyright">Copyright © 2025 Marco Carrieri</p>
+  </footer>
 </body>
 </html>

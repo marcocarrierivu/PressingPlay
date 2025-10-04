@@ -1,96 +1,97 @@
-/* Review page: keep index footer styles; only add layout so short pages
-   push the footer to the bottom (away from the body gradient switch). */
-
-/* Make the page a flex column so main can stretch */
-.review-page{
-  min-height:100%;
-  display:flex;
-  flex-direction:column;
+.page-title{font-size:3rem; margin:0 0 8px}
+.intro{margin-top:12px; color:var(--text)}
+.tracklist{
+  margin:32px 0 0; padding-left:18px; font-weight:700; font-size:1.6rem;
+  display:grid; gap:18px;
 }
+.tracklist li{list-style:decimal; padding-left:8px}
 
-/* Let <main> consume remaining height beneath the sticky header */
-.review-page > main.container{
-  flex:1;                     /* stretch main */
-  display:flex;
-  flex-direction:column;      /* so footer can auto-push down */
-}
-
-/* Push the .footer to the bottom of main when content is short */
-.review-page .footer{
-  margin-top:auto;            /* same visual footer as index; just positioned lower */
-}
-
-/* --- rest of the review form styles --- */
-
-.visually-hidden{
-  position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
-}
-
-.review-box{
-  background:linear-gradient(180deg,var(--card),var(--card-alt));
+.review-form{
+  background:rgba(0,0,0,.22);
   border:1px solid var(--border);
-  border-radius:12px;
-  padding:16px 18px;
+  border-radius:14px;
+  box-shadow:var(--shadow-card-soft);
+  padding:16px;
 }
 
-.grid{display:grid; gap:16px; grid-template-columns:1fr 1fr}
-@media (max-width:800px){ .grid{grid-template-columns:1fr} }
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
 
-.field{display:flex; flex-direction:column; gap:8px}
-.field label{font-weight:600}
-.field .hint{color:var(--muted); font-size:14px; margin:0}
-
+.field label{
+  display:block;
+  font-weight:700;
+  margin:6px 0 8px;
+}
 .field input[type="text"],
 .field input[type="number"],
-.field input[type="search"],
-.field textarea{
-  background:rgba(255,255,255,.06);
+.field input[type="date"],
+.review-form textarea{
+  width:100%;
   border:1px solid var(--border);
   border-radius:10px;
+  background:rgba(255,255,255,.06);
   color:var(--text);
-  padding:10px 12px;
-  outline:0;
+  padding:12px 14px;
+  outline:none;
+}
+.review-form textarea{
+  min-height:180px;
+  resize:vertical;
 }
 
-.field textarea{resize:vertical; min-height:180px}
-
-.meta-row{display:flex; flex-wrap:wrap; gap:8px; margin-top:-4px}
-.pill{
-  display:inline-flex; gap:6px; align-items:center;
-  padding:4px 8px; border:1px solid var(--border);
-  border-radius:999px; color:var(--muted);
-  font-size:12px;
+.chip-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+.chip.hollow{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.9rem;
 }
 
-fieldset.field{border:1px solid var(--border); border-radius:12px; padding:12px}
-legend{padding:0 6px; font-weight:700}
-
-.rating-wrap{
-  display:grid; gap:16px;
-  grid-template-columns:200px 1fr 120px;
+.rating-card{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:14px;
+  margin-top:14px;
+  background:rgba(255,255,255,.04);
+}
+.rating-card legend{
+  padding:0 6px;
+  font-weight:700;
+}
+.rating-grid{
+  display:grid;
+  grid-template-columns: 280px 1fr 120px;
+  gap:20px;
   align-items:end;
 }
-.rating-number input[type="number"]{width:100%}
-.rating-number .sub, .rating-range .sub{font-size:12px; color:var(--muted); display:block; margin-bottom:6px}
+.range{width:100%}
 
-.rating-range input[type="range"]{
-  width:100%;
-  accent-color:var(--chip);
+.score-big{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:flex-end;
 }
-.rating-badge{
-  display:grid; place-items:center; gap:8px; text-align:center;
+.score-big .ten{
+  font-size:2rem;
+  font-weight:800;
 }
-.rating-badge .score{font-size:28px; font-weight:800}
-.rating-badge .star{
-  width:54px; height:54px; border-radius:12px; display:grid; place-items:center;
-  border:1px solid var(--border); background:rgba(255,255,255,.06);
+.star-btn{
+  width:48px; height:48px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.06);
+  display:grid; place-items:center;
+  cursor:pointer;
 }
+.star-ico{width:26px; height:26px}
 
-.actions-row{display:flex; gap:12px; margin-top:14px}
-
-/* Responsive */
-@media (max-width:900px){
-  .rating-wrap{grid-template-columns:1fr}
-  .rating-badge{justify-content:flex-start}
+.actions{
+  margin-top:18px;
+  display:flex; gap:10px; align-items:center;
 }

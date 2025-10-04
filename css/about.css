@@ -1,0 +1,33 @@
+.page-title{font-size:3rem; margin:0 0 6px}
+
+.card{
+  margin-top:18px;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--border);
+  border-radius:14px;
+  box-shadow:var(--shadow-card-soft);
+  padding:16px;
+}
+.card h2{margin:0 0 8px}
+.card p{margin:10px 0}
+
+.info-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:16px;
+  margin-top:10px;
+}
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:10px;
+}
+.mini-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+}
+.mini-card h3{margin:0 0 6px}
+.mini-card ul{margin:8px 0 0 18px}

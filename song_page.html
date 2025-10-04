@@ -2,183 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Song Page</title>
+  <title>PressingPlay • Song Page</title>
 
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/song_page.css">
 
   <style>
-    .song-hero{
-      display:grid;
-      grid-template-columns: 260px 1fr 180px;
-      gap:90px;
-      align-items:center;
-      margin:40px 0 10px;
-    }
+    .song-hero{display:grid; grid-template-columns:260px 1fr 200px; gap:28px; align-items:center; margin-top:36px}
+    .song-hero .cover{width:260px; height:260px; border-radius:12px; border:1px solid var(--border); overflow:hidden}
+    .song-hero .cover img{width:100%; height:100%; object-fit:cover}
+    .song-hero .rating{display:flex; align-items:center; justify-content:flex-end; gap:18px}
+    .song-hero .rating .star{width:90px; height:90px}
+    .song-hero .rating .num{font-size:3.2rem; font-weight:800}
 
-    .song-art{
-      width:260px; height:260px; border-radius:14px; overflow:hidden;
-      border:1px solid var(--border);
-    }
+    .section-label{display:flex; align-items:center; gap:10px; margin-top:28px; font-weight:700}
+    .section-label .play-icon{display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; border:1px solid var(--border); background:rgba(255,255,255,.06)}
 
-    .song-meta h1{font-size:48px; line-height:1.05; margin:.1em 0 .25em}
-    .song-meta .sub{color:var(--muted); margin-bottom:18px}
+    .review-box{margin-top:18px; border:1px solid var(--border); border-radius:12px; background:rgba(255,255,255,.06)}
+    .review-box .row{display:flex; align-items:center; gap:10px; padding:10px 12px; border-bottom:1px solid var(--border)}
+    .review-box .row .sel{display:flex; align-items:center; gap:6px}
+    .review-box .input{padding:12px}
+    .review-box textarea{width:100%; min-height:48px; resize:vertical; background:transparent; color:var(--text); border:0; outline:0}
+    .review-box .actions{display:flex; gap:8px; padding:0 12px 12px}
 
-    .play-link{
-      display:inline-flex; align-items:center; gap:10px;
-      border:1px solid var(--border); border-radius:999px;
-      padding:10px 14px; color:#fff;
+    .feed{margin-top:24px}
+    .feed-card{
+      background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--border); border-radius:12px; padding:14px;
+      display:grid; grid-template-columns:72px 1fr 84px; gap:14px; align-items:center;
     }
-    .play-triangle{
-      width:0; height:0; border-left:10px solid #fff;
-      border-top:7px solid transparent; border-bottom:7px solid transparent;
-    }
-
-    .song-rating{display:grid; justify-items:center; gap:10px}
-    .song-rating .big-star{
-      width:110px; height:110px; border-radius:16px; display:grid; place-items:center;
-      border:1px solid var(--border); background:rgba(255,255,255,.06);
-    }
-    .song-rating .score{font-size:40px; font-weight:800}
-
-    /* Responsive hero behavior */
-    @media (max-width:900px){
-      .song-hero{grid-template-columns: 200px 1fr; gap:28px}
-      .song-rating{grid-column:1/-1; justify-items:flex-start}
-      .song-art{width:200px; height:200px}
-      .song-meta h1{font-size:40px}
-    }
-    @media (max-width:640px){
-      .song-hero{grid-template-columns: 1fr}
-      .song-art{width:100%; height:auto; aspect-ratio:1/1}
-    }
+    .feed-card + .feed-card{margin-top:12px}
+    .avatar{width:72px; height:72px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid var(--border)}
+    .vote-col{display:flex; flex-direction:column; align-items:flex-end; gap:10px; color:var(--muted)}
   </style>
 </head>
-<body>
-  <header>
-    <div class="container row">
-      <div class="brand">
-        <a href="index.html">
-          <img src="images/logo.png" class="logo" alt="PressingPlay home">
-        </a>
-      </div>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#submit">SUBMIT</a>
-        <a href="#review">REVIEW</a>
-        <a href="#about">ABOUT</a>
+
+<body class="page">
+  <div class="page-wrap">
+    <header class="site-header">
+      <a class="brand" href="index.html"><img class="brand-logo" src="images/logo.png" alt="" /></a>
+      <nav class="main-nav">
+        <a href="submit.html">Submit</a>
+        <a href="review.html">Review</a>
+        <a href="about.html">About</a>
       </nav>
-      <form class="search" role="search">
-        <input type="search" placeholder="Search for Songs, Albums, or Reviews" aria-label="Search" />
-        <button type="submit" aria-label="Search">🔍</button>
-      </form>
+      <form class="search" role="search"><input type="search" placeholder="Search for Songs, Albums, or Reviews"><button aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M21 20.3 16.7 16a8 8 0 1 0-1.7 1.7L20.3 21 21 20.3zM10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"/></svg>
+      </button></form>
+    </header>
+
+    <main class="container">
+      <section class="song-hero">
+        <div class="cover"><img src="images/notion.png" alt="Notion artwork"></div>
+        <div class="meta">
+          <h1 class="page-title">Notion</h1>
+          <p class="muted">Brandon Kai (2022)</p>
+
+          <p class="play-row">
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <a href="#" class="play-link">Play Song</a>
+          </p>
+        </div>
+        <div class="rating">
+          <svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.7 6.9L12 17.7 5.7 20.8l1.7-6.9L2 9.2l7.1-.6z"/></svg>
+          <div class="num">8.0</div>
+        </div>
+      </section>
+
+      <div class="section-label">
+        <span class="play-icon" aria-hidden="true">💬</span>
+        <span>Reviews</span>
+      </div>
+
+      <section class="review-box" aria-labelledby="post-review">
+        <div class="row">
+          <div class="sel">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.7 6.9L12 17.7 5.7 20.8l1.7-6.9L2 9.2l7.1-.6z"/></svg>
+            <span class="muted">- /10</span>
+            <span aria-hidden="true">▾</span>
+          </div>
+        </div>
+        <div class="input">
+          <label for="rev-text" class="visually-hidden">Leave a review</label>
+          <textarea id="rev-text" placeholder="Leave a review!"></textarea>
+        </div>
+        <div class="actions">
+          <button class="btn" type="button">Preview</button>
+          <button class="btn btn-primary" type="button">Post Review</button>
+        </div>
+      </section>
+
+      <div class="feed">
+        <article class="feed-card">
+          <div class="avatar" role="img" aria-label="User avatar"></div>
+          <div>
+            <p class="bold">@DaltonTheProf</p>
+            <p class="muted">Life changing song, I give it an A+ for its…</p>
+            <button class="btn" type="button">Read More</button>
+          </div>
+          <div class="vote-col"><span>320 👍</span><span>12 👎</span></div>
+        </article>
+
+        <article class="feed-card">
+          <div class="avatar" role="img" aria-label="User avatar"></div>
+          <div>
+            <p class="bold">@MarcoPolo</p>
+            <p class="muted">Am I the only one who hates the chorus? It sounds like…</p>
+            <button class="btn" type="button">Read More</button>
+          </div>
+          <div class="vote-col"><span>201 👍</span><span>42 👎</span></div>
+        </article>
+
+        <article class="feed-card">
+          <div class="avatar" role="img" aria-label="User avatar"></div>
+          <div>
+            <p class="bold">@Cocky</p>
+            <p class="muted">Cock-a-doodle-doo…</p>
+            <button class="btn" type="button">Read More</button>
+          </div>
+          <div class="vote-col"><span>110 👍</span><span>6 👎</span></div>
+        </article>
+
+        <p class="center muted" style="margin-top:16px">View More ▾</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <img src="images/logo.png" alt="" class="footer-logo" />
+      <p class="footer-tagline"><strong>PressingPlay, the world's premiere hub for music critics</strong></p>
+      <a href="about.html" class="footer-btn">About</a>
     </div>
-  </header>
-
-  <main class="container">
-
-    <section class="song-hero" aria-labelledby="song-title">
-      <figure class="song-art">
-        <img src="images/notion.png" alt="Notion artwork">
-      </figure>
-
-      <div class="song-meta">
-        <h1 id="song-title">Notion</h1>
-        <div class="sub">Brandon Kai (2022)</div>
-        <a class="play-link" href="https://www.youtube.com" target="_blank" rel="noopener">
-          <span class="play-triangle" aria-hidden="true"></span>
-          <span>Play Song</span>
-        </a>
-      </div>
-
-      <aside class="song-rating" aria-label="Average rating">
-        <div class="big-star" aria-hidden="true">
-          <img src="images/star.png" alt="" class="icon-star" style="width:65px; height:65px;">
-        </div>
-        <div class="score">8.0</div>
-      </aside>
-    </section>
-
-    <section class="review-box" aria-labelledby="compose-title">
-      <div class="rating-row">
-        <div class="mini-star" aria-hidden="true">
-          <img src="images/star.png" alt="" class="icon-star">
-        </div>
-        <strong id="compose-title">Rate & Review</strong>
-        <span class="slash10">/10</span>
-      </div>
-
-      <label class="visually-hidden" for="reviewText">Leave a review</label>
-      <textarea id="reviewText" class="review-input" placeholder="Leave a review!"></textarea>
-
-      <div class="composer-actions">
-        <button class="btn" type="button">Post Review</button>
-      </div>
-    </section>
-
-    <div class="reviews-top">
-      <span class="chip">Top Rated ▾</span>
-      <span class="count">2,004 Reviews</span>
-    </div>
-
-    <section class="reviews-list" aria-label="Top reviews">
-      <article class="review-card">
-        <div class="review-avatar">
-          <img src="images/pfp.jpg" alt="DaltonTheProf avatar">
-        </div>
-        <div class="review-body">
-          <h4>@DaltonTheProf</h4>
-          <p>Life changing song, I give it an A+ for its…</p>
-          <button class="btn" type="button">Read More</button>
-        </div>
-        <div class="vote-col" aria-label="Votes">
-          <div>320 👍</div>
-          <div>12 👎</div>
-        </div>
-      </article>
-
-      <article class="review-card">
-        <div class="review-avatar">
-          <img src="images/pfp.jpg" alt="MarcoPolo avatar">
-        </div>
-        <div class="review-body">
-          <h4>@MarcoPolo</h4>
-          <p>Am I the only one who hates the chorus? It sounds like…</p>
-          <button class="btn" type="button">Read More</button>
-        </div>
-        <div class="vote-col">
-          <div>201 👍</div>
-          <div>42 👎</div>
-        </div>
-      </article>
-
-      <article class="review-card">
-        <div class="review-avatar">
-          <img src="images/pfp.jpg" alt="User avatar">
-        </div>
-        <div class="review-body">
-          <h4>@Cocky</h4>
-          <p>Cock-a-doodle-doo…</p>
-          <button class="btn" type="button">Read More</button>
-        </div>
-        <div class="vote-col">
-          <div>110 👍</div>
-          <div>6 👎</div>
-        </div>
-      </article>
-
-      <div class="view-more-wrap">
-        <button class="view-more" type="button">View More ▾</button>
-      </div>
-    </section>
-
-    <section class="footer" aria-label="About">
-      <h2>PressingPlay, the world's premiere hub for music critics</h2>
-      <p>Discover fresh albums, read thoughtful reviews, and join the conversation.</p>
-      <a class="ghost" href="#about">About</a>
-      <div class="copyright">Copyright © 2025 Marco Carrieri</div>
-    </section>
-
-  </main>
+    <p class="copyright">Copyright © 2025 Marco Carrieri</p>
+  </footer>
 </body>
 </html>
