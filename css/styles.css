@@ -1,111 +1,94 @@
-/*  At the html document I keep all theme colors in :root and “:root” refers to the <html> element  */
 :root{
-  --bg-top:#1b0b3a; /* top of page background gradient */
-  --bg-bot:#b045ff; /* bottom of page background gradient */
-  --card:#2a1753; /* default card background */
-  --card-alt:#341d62; /* subtle gradient variation for cards */
-  --text:#ffffff; /* main text color */
-  --muted:#cbbde6; /* secondary / muted text */
-  --chip:#6b47ff; /* pill/chip background */
-  --chip-text:#fff; /* pill/chip text */
-  --btn:#6b47ff; /* primary button background */
-  --btn-hover:#5837df; /* primary button hover color */
-  --border:rgba(255,255,255,.12); /* subtle 1px borders on dark bg */
+  --bg-top:#1b0b3a;
+  --bg-bot:#b045ff;
+  --card:#2a1753;
+  --card-alt:#341d62;
+  --text:#ffffff;
+  --muted:#cbbde6;
+  --chip:#6b47ff;
+  --chip-text:#fff;
+  --btn:#6b47ff;
+  --btn-hover:#5837df;
+  --border:rgba(255,255,255,.12);
+  --footer-bg:#0f0a24;
+  --footer-card:#f7f7fb;
+  --shadow-card:0 8px 24px rgba(0,0,0,.25);
+  --shadow-card-soft:0 4px 12px rgba(0,0,0,.18);
 }
 
-/*  Applies border-box sizing to all elements so padding/border don’t increase width  */
-*{ box-sizing:border-box }
-
-/*  Lets the page gradient stretch the full viewport height  */
-html,body{ height:100% }
-
+*{box-sizing:border-box}
+html, body{height:100%}
 body{
-  /*  Removes default spacing and sets global typography  */
-  margin:0; /* removes default margin around body */
-  font:16px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; /* base font stack */
-  color:var(--text); /* sets default text color */
-  background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 85%); /* vertical page gradient */
-  min-height:100%; /* ensures body can grow to full height */
+  margin:0;
+  color:var(--text);
+  font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  background:linear-gradient(180deg,var(--bg-top),var(--bg-bot) 85%) fixed;
 }
 
-/*  Links inherit the surrounding text color and have no underline  */
-a{ color:inherit; text-decoration:none }
+.page{min-height:100%}
+.page-wrap{min-height:calc(100vh - 168px); display:flex; flex-direction:column}
+.container{width:min(1120px, 92%); margin:0 auto 64px}
 
-/*  Images are block-level and scale down responsively within their containers  */
-img{ display:block; max-width:100%; height:auto }
+.site-header{
+  position:sticky; top:0; z-index:10;
+  display:flex; gap:24px; align-items:center; justify-content:space-between;
+  padding:14px 20px; background:rgba(20,10,45,.66); backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.brand-logo{width:48px; height:48px; border-radius:999px; display:block}
+.main-nav{display:flex; gap:18px; align-items:center}
+.main-nav a{padding:8px 0}
 
-/*  Generic layout helpers used throughout the site  */
-.container{ max-width:1120px; margin:0 auto; padding:28px 20px } /* centers content with inner padding */
-.row{ display:flex; gap:24px; align-items:center } /* horizontal flex row with spacing */
-.spacer{ height:28px } /* vertical space element */
-
-/*  The site header is sticky so it stays visible on scroll  */
-header{
-  position:sticky; top:0; z-index:10; /* sticks to top; z-index keeps it above content */
-  background:linear-gradient(180deg,rgba(27,11,58,.95),rgba(27,11,58,.75)); /* semi-transparent header bg */
-  border-bottom:1px solid var(--border); /* subtle divider line under header */
+.site-header .main-nav a,
+.site-header .main-nav a[class]{
+  font-weight:400;
+  opacity:1;
+  background:transparent;
+  box-shadow:none;
 }
 
-/*  Brand area on the left side of the header  */
-.brand{ display:flex; align-items:center; gap:12px } /* aligns logo and title nicely */
-.logo{ width:55px; height:55px; border-radius:50% } /* circular logo with fixed size */
-
-/*  Primary navigation links inside the header  */
-.nav-links{ display:flex; gap:28px; margin-left:40px } /* pushes nav away from logo */
-.nav-links a{ opacity:.9 } /* slightly dim by default */
-.nav-links a:hover{ opacity:1 } /* full brightness on hover */
-
-/*  Search form in the header (pill style, aligned to the far right)  */
-.search{
-  margin-left:auto; /* pushes search to the right in the header row */
-  display:flex; align-items:center; gap:8px; /* horizontal input + icon layout */
-  background:rgba(255,255,255,.08); /* translucent background on dark header */
-  border:1px solid var(--border); /* hairline border around the search */
-  padding:8px 10px; /* inner spacing */
-  border-radius:999px; /* pill shape */
-  flex:0 1 360px; /* allows shrinking, caps preferred width */
-}
+.search{display:flex; gap:0; align-items:center; margin-left:auto}
 .search input{
-  border:0; outline:0; background:transparent; /* removes native input chrome */
-  color:var(--text); width:100%; /* inherits text color and fills remaining space */
+  width:320px; padding:10px 12px; border-radius:999px 0 0 999px; border:1px solid var(--border);
+  background:rgba(255,255,255,.06); color:var(--text); outline:none;
 }
-.search input::placeholder{ color:#fff; opacity:.5 } /* bright placeholder with lower opacity */
+.search button{
+  padding:10px 12px; border-radius:0 999px 999px 0; border:1px solid var(--border); border-left:0;
+  background:rgba(255,255,255,.08); color:var(--text); cursor:pointer;
+}
 
-/*  Generic button style used across the site  */
+a{color:inherit; text-decoration:none}
+.section-title{font-size:1.8rem}
+.row-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px}
+.chip{background:var(--chip); color:var(--chip-text); padding:6px 10px; border-radius:999px; font-size:.9rem}
+.muted{color:var(--muted)}
+.bold{font-weight:700}
+.center{text-align:center}
+
 .btn{
-  background:var(--btn); color:#fff; /* primary button colors */
-  border:0; border-radius:8px; /* rounded corners */
-  padding:6px 10px; cursor:pointer; /* comfortable hit area and pointer cursor */
+  background:rgba(255,255,255,.08); color:var(--text); border:1px solid var(--border);
+  padding:8px 12px; border-radius:10px; cursor:pointer;
 }
-.btn:hover{ background:var(--btn-hover) } /* darker shade on hover */
+.btn-primary{background:var(--btn); border-color:transparent}
+.btn-primary:hover{background:var(--btn-hover)}
 
-/*  “Ghost” buttons (transparent with a thin border). Used for chips/filters as <a> or <button>  */
-a.ghost,
-button.ghost{
-  display:inline-block; /* allows padding and border to apply nicely */
-  padding:10px 14px; /* inner spacing */
-  border-radius:999px; /* pill shape */
-  border:1px solid var(--border); /* hairline outline */
-  background:transparent; /* no fill color */
-  color:#ffffff; /* white text on dark backgrounds */
-  text-decoration:none; /* no underline for <a> */
-  line-height:1; /* compact vertical alignment */
-  font:inherit; /* matches surrounding font */
+.site-footer{
+  background:transparent; padding:18px 0 24px; position:relative; z-index:1;
+}
+.footer-main{
+  width:min(1120px, 92%); margin:0 auto; background:var(--footer-card);
+  color:#17171a; border-radius:18px; border:1px solid rgba(20,20,30,.08);
+  display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 20px;
+  box-shadow:0 10px 28px rgba(0,0,0,.25);
+}
+.footer-logo{width:64px; height:64px; border-radius:999px}
+.footer-tagline{margin:0; text-align:center; flex:1; font-size:1.2rem}
+.footer-btn{
+  background:#fff; color:#111; border:1px solid rgba(0,0,0,.1); padding:10px 14px; border-radius:999px; font-weight:600;
+}
+.footer-btn:hover{background:#f0f0f4}
+.site-footer .copyright{
+  color:#e9e9ef; text-align:center; font-size:.9rem; margin:10px 0 0;
 }
 
-/*  Standard size for star icons so they remain consistent site-wide  */
-.icon-star{ width:28px; height:28px; display:block }
-
-/*  Section headings used like “Reviews”, “Trending”, etc.  */
-.section-title{ font-size:34px; margin:28px 0 10px; font-weight:800 }
-
-/*  Footer block at the bottom of the page  */
-.footer{
-  margin-top:34px; /* space before footer */
-  border-top:1px solid var(--border); /* divider above footer */
-  padding:34px 0 22px; /* inner vertical padding */
-  text-align:center; /* centers footer text */
-}
-.footer h2{ font-size:28px; margin:0 0 12px; font-weight:800 } /* footer heading style */
-.footer p{ margin:0 0 18px } /* spacing for footer paragraphs */
-.copyright{ margin-top:16px; color:var(--muted); font-size:14px } /* small muted copyright line */
+.visually-hidden{position:absolute !important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
