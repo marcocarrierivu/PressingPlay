@@ -16,11 +16,8 @@
 
 .grid-2{
   display:grid;
-  grid-template-columns:1fr;
+  grid-template-columns:1fr 1fr;
   gap:18px;
-}
-@media (min-width: 880px){
-  .grid-2{grid-template-columns:1fr 1fr}
 }
 
 .field label{
@@ -68,15 +65,9 @@
 }
 .rating-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
+  grid-template-columns: 280px 1fr 120px;
+  gap:20px;
   align-items:end;
-}
-@media (min-width: 980px){
-  .rating-grid{
-    grid-template-columns: 280px 1fr 120px;
-    gap:20px;
-  }
 }
 .range{width:100%}
 
