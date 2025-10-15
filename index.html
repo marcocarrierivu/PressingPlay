@@ -19,6 +19,23 @@
     .album .title{font-weight:700; margin:2px 0 2px}
     .album .artist{color:var(--muted); font-size:.95rem}
 
+    /* Make song titles look clickable */
+    .album .title a{
+      color:inherit; text-decoration:underline; text-underline-offset:3px;
+    }
+    .album .title a:hover,
+    .album .title a:focus{opacity:.9}
+
+    /* Make album covers clickable with a subtle hover cue */
+    .albums .cover-link{display:block; line-height:0; border-radius:12px 12px 0 0}
+    .albums .cover-link img{display:block}
+    .albums .cover-link:hover img,
+    .albums .cover-link:focus img{transform:scale(1.01)}
+    .albums .cover-link img{transition:transform .15s ease}
+
+    /* General link cursor inside album cards */
+    .albums .album a{cursor:pointer}
+
     .reviews h2{margin:8px 0 14px}
     .pill-tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px}
     .pill-tabs a{
@@ -32,11 +49,17 @@
       box-shadow:var(--shadow-card-soft);
     }
     .review-card + .review-card{margin-top:14px}
+
+    /* THUMBNAIL AS LINK */
     .review-card .thumb{
-      width:86px; height:86px; border-radius:10px; overflow:hidden; border:1px solid var(--border);
+      display:block;                 /* make the anchor fill its box */
+      width:86px; height:86px; 
+      border-radius:10px; overflow:hidden; border:1px solid var(--border);
       background:#130929;
     }
+    .review-card .thumb:focus-visible{outline:2px solid var(--accent, #8b5cf6); outline-offset:2px}
     .review-card .thumb img{width:100%; height:100%; object-fit:cover}
+
     .review-card .body .title{font-weight:700; margin:0 0 4px}
     .review-card .body .by{color:var(--muted); font-size:.92rem; margin:0 0 8px}
     .review-card .body .row{display:flex; gap:12px; align-items:center}
@@ -86,25 +109,31 @@
 
         <div class="albums">
           <article class="album">
-            <img src="images/the eminem show.png" alt="The Eminem Show cover">
+            <a href="album_page.html" class="cover-link" aria-label="Open The Eminem Show">
+              <img src="images/the eminem show.png" alt="The Eminem Show cover">
+            </a>
             <div class="meta">
-              <p class="title">The Eminem Show</p>
+              <p class="title"><a href="song_page.html">The Eminem Show</a></p>
               <p class="artist">Eminem</p>
             </div>
           </article>
 
           <article class="album">
-            <img src="images/thank you 4 your service.png" alt="We Got It from Here cover">
+            <a href="album_page.html" class="cover-link" aria-label="Open We Got It from Here... Thank You...">
+              <img src="images/thank you 4 your service.png" alt="We Got It from Here cover">
+            </a>
             <div class="meta">
-              <p class="title">We Got It from Here... Thank You...</p>
+              <p class="title"><a href="song_page.html">We Got It from Here... Thank You...</a></p>
               <p class="artist">A Tribe Called Quest</p>
             </div>
           </article>
 
           <article class="album">
-            <img src="images/illmatic.png" alt="Illmatic cover">
+            <a href="album_page.html" class="cover-link" aria-label="Open Illmatic">
+              <img src="images/illmatic.png" alt="Illmatic cover">
+            </a>
             <div class="meta">
-              <p class="title">Illmatic</p>
+              <p class="title"><a href="song_page.html">Illmatic</a></p>
               <p class="artist">Nas</p>
             </div>
           </article>
@@ -122,8 +151,11 @@
           <a href="#">Controversial</a>
         </nav>
 
+        <!-- REVIEW THUMBNAILS NOW LINK TO song_page.html -->
         <article class="review-card">
-          <div class="thumb"><img src="images/Lupe-Fiasco-Samurai.webp" alt=""></div>
+          <a class="thumb" href="song_page.html" aria-label="Open song page">
+            <img src="images/Lupe-Fiasco-Samurai.webp" alt="">
+          </a>
           <div class="body">
             <h3 class="title">A cutting-edge track</h3>
             <p class="by">Lupe Fiasco proves yet again why he… • <span class="muted">@carrieri</span></p>
@@ -140,7 +172,9 @@
         </article>
 
         <article class="review-card">
-          <div class="thumb"><img src="images/Little-Simz.webp" alt=""></div>
+          <a class="thumb" href="song_page.html" aria-label="Open song page">
+            <img src="images/Little-Simz.webp" alt="">
+          </a>
           <div class="body">
             <h3 class="title">Deep.</h3>
             <p class="by">Wow, life changing… • <span class="muted">@dybala21</span></p>
@@ -157,7 +191,9 @@
         </article>
 
         <article class="review-card">
-          <div class="thumb"><img src="images/Lauryn-Hill.webp" alt=""></div>
+          <a class="thumb" href="song_page.html" aria-label="Open song page">
+            <img src="images/Lauryn-Hill.webp" alt="">
+          </a>
           <div class="body">
             <h3 class="title">Best Female Artist.</h3>
             <p class="by">I loved every song especially… • <span class="muted">@TheBurntChip</span></p>
