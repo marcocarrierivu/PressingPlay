@@ -10,6 +10,11 @@
   <style>
     .albums-wrap{position:relative; margin-top:32px}
     .albums{display:flex; gap:24px; overflow-x:auto; padding:4px 2px 12px}
+    
+    /* Hide scrollbar */
+    .albums::-webkit-scrollbar{display:none}
+    .albums{-ms-overflow-style:none; scrollbar-width:none}
+    
     .album{
       min-width:320px; background:var(--card); border:1px solid var(--border);
       border-radius:12px; box-shadow:var(--shadow-card);
@@ -40,7 +45,16 @@
     .pill-tabs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px}
     .pill-tabs a{
       padding:8px 12px; border:1px solid var(--border); border-radius:999px;
-      background:rgba(255,255,255,.06);
+      background:rgba(255,255,255,.06); transition:all .2s ease;
+      text-decoration:none; color:inherit;
+    }
+    .pill-tabs a:hover{
+      background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.3);
+      transform:translateY(-1px);
+    }
+    .pill-tabs a.is-active{
+      background:var(--accent, #8b5cf6); border-color:var(--accent, #8b5cf6);
+      color:#fff; font-weight:600; box-shadow:0 4px 12px rgba(139,92,246,.3);
     }
     .review-card{
       display:grid; grid-template-columns:86px 1fr 120px; gap:16px;
@@ -137,6 +151,36 @@
               <p class="artist">Nas</p>
             </div>
           </article>
+
+          <article class="album">
+            <a href="album_page.html" class="cover-link" aria-label="Open The Miseducation of Lauryn Hill">
+              <img src="images/Lauryn-Hill.webp" alt="The Miseducation of Lauryn Hill cover">
+            </a>
+            <div class="meta">
+              <p class="title"><a href="song_page.html">The Miseducation of Lauryn Hill</a></p>
+              <p class="artist">Lauryn Hill</p>
+            </div>
+          </article>
+
+          <article class="album">
+            <a href="album_page.html" class="cover-link" aria-label="Open Sometimes I Might Be Introvert">
+              <img src="images/Little-Simz.webp" alt="Sometimes I Might Be Introvert cover">
+            </a>
+            <div class="meta">
+              <p class="title"><a href="song_page.html">Sometimes I Might Be Introvert</a></p>
+              <p class="artist">Little Simz</p>
+            </div>
+          </article>
+
+          <article class="album">
+            <a href="album_page.html" class="cover-link" aria-label="Open SAMURAI">
+              <img src="images/Lupe-Fiasco-Samurai.webp" alt="SAMURAI cover">
+            </a>
+            <div class="meta">
+              <p class="title"><a href="song_page.html">SAMURAI</a></p>
+              <p class="artist">Lupe Fiasco</p>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -222,5 +266,7 @@
     </div>
     <p class="copyright">Copyright © 2025 Marco Carrieri</p>
   </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
